@@ -7,6 +7,8 @@ from SubjectList.SearchForm import SearchingForm
 
 # Create your views here.
 def index(request):
+    #print request.session['login']
+    
     if request.method == 'POST':
         form = SearchingForm(request.POST)
         if form.is_valid():

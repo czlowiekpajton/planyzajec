@@ -1,0 +1,28 @@
+ {% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Strona Glówna</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'LogIn/layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'LogIn/colors.css' %}">
+</head>
+
+<body>
+    <div id="container">
+        <div class="header">
+            <h1>Logowanie</h1>
+        </div><p>{{ message }}</p>
+	    <form method="post" action="/LogIn/">
+	    	{% csrf_token %}
+		    <p>{{ form.login }}</p>
+		    <p>{{ form.password }}</p>
+		    <p><input type="submit" value="Logowanie"/>
+		    <input type="reset" value="Wartości domyślne"/></p>
+	  	</form>
+  	</div>
+  	<footer>
+    	Autorzy: Magdalena Rybak, Mariusz Szklaruk, Namyslaw Jerzy Szymaniuk, Karol Tarasiuk, Adrian Traczyk
+    </footer>
+</body>
+</html>

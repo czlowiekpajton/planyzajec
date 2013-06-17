@@ -8,7 +8,8 @@ urlpatterns = patterns('',
     # Examples:
     url(r'', include('SubjectList.urls')),
     url(r'^SubjectList/', include('SubjectList.urls')),
-    url(r'^AddSubject/', include('AddSubject.urls'))
+    url(r'^AddSubject/', include('AddSubject.urls')),
+    url(r'^LogIn/', include('LogIn.urls'))
     # url(r'^$', 'PlanyZajec.views.home', name='home'),
     # url(r'^PlanyZajec/', include('PlanyZajec.foo.urls')),
 
@@ -18,4 +19,3 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 )
-## JEBAC DZIWKO
