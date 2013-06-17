@@ -25,10 +25,10 @@
 			<nav class="navMenu">
 				<ul>
 					<li>
-						<a href="#">Rozkład</a>
+						<a href="/">Rozkład</a>
 						<ul>
 							<li>
-								<a href="#">Edytuj</a>
+								<a href="/AddSubject/">Dodaj</a>
 							</li>
 							<li>
 								<a href="#">Analizuj</a>
@@ -76,6 +76,7 @@
 				</ul>
 			</nav>
 			<section>
+			<h2>Przeglądanie planu</h2>
 			<form action="/SubjectList/" method="post">{% csrf_token %}
 				<table>
 					<tr>
@@ -91,7 +92,7 @@
 					</tr>
 				</table>
 			</form>
-			<table id="myTable" class="tablesorter" border="1">
+			<table id="myTable" class="tablesorter" border="1" style="margin: 10px 0px;">
 				<thead>
 					<tr>
     					<th>
