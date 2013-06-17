@@ -1,0 +1,167 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Strona Główna</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'SubjectList/layout.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'SubjectList/colors.css' %}">
+		<script type="text/javascript" src="{% static 'SubjectList/jquery-latest.js' %}"></script> 
+		<script type="text/javascript" src="{% static 'SubjectList/jquery.tablesorter.js' %}"></script>
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$("#myTable").tablesorter({sortList: [[8,0], [5,0]]});
+			}
+			);
+		</script> 
+	</head>
+
+	<body>
+		<div id="container">
+			<div class="header">
+				<h1>Plan zajęć</h1>
+			</div>
+			<nav class="navMenu">
+				<ul>
+					<li>
+						<a href="#">Rozkład</a>
+						<ul>
+							<li>
+								<a href="#">Edytuj</a>
+							</li>
+							<li>
+								<a href="#">Analizuj</a>
+							</li>
+							<li>
+								<a href="#">Drukuj</a>
+							</li>
+							<li>
+								<a href="#">Pokaż obciążenie</a>
+							</li>
+							<li>
+								<a href="#">Wolne sale</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Tabele</a>
+					</li>
+					<li>
+						<a href="#">Narzędzia</a>
+						<ul>
+							<li>
+								<a href="#">Indeksuj pliki</a>
+							</li>
+							<li>
+								<a href="#">Parametry</a>
+							</li>
+							<li>
+								<a href="#">Tryb read-only</a>
+							</li>
+							<li>
+								<a href="#">Utwórz bazy podstawowe</a>
+							</li>
+							<li>
+								<a href="#">Publikuj rozkład nauczycieli</a>
+							</li>
+							<li>
+								<a href="#">Drukuj raport obciążenia</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Pomoc</a>
+					</li>
+				</ul>
+			</nav>
+			<section>
+			<form action="/SubjectList/" method="post">{% csrf_token %}
+				<table>
+					<tr>
+						<td>
+							Semestr:
+						</td>
+						<td>
+							{{ search.semester }}
+						</td>
+						<td>
+        					<input type="submit" value="Wyświetl">
+						</td>
+					</tr>
+				</table>
+			</form>
+			<table id="myTable" class="tablesorter" border="1">
+				<thead>
+					<tr>
+    					<th>
+    						<p>Nazwa przedmiotu:</p>
+    					</th>
+    					<th>
+    						<p>Sala:</p>
+    					</th>
+    					<th>
+    						<p>Prowadzący:</p>
+    					</th>
+    					<th>
+    						<p>Rodzaj:</p>
+    					</th>
+    					<th>
+    						<p>Grupa PS:</p>
+    					</th>
+    					<th>
+    						<p>Czas rozpoczęcia:</p>
+    					</th>
+    					<th>
+    						<p>Czas zakończenia:</p>
+    					</th>
+    					<th>
+    						<p>Dzień tygodnia:</p>
+    					</th>
+    					<th class="hide">
+    						<p>Dzień tygodnia ID:</p>
+    					</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+					{% for subject in subjects %}
+    					<tr>
+    						<td>
+    							{{ subject.name }}
+    						</td>
+    						<td>
+    							{{ subject.roomsid.number }}
+    						</td>
+    						<td>
+    							{{ subject.lecturesid.firstname }}
+    							{{ subject.lecturesid.lastname }}
+    						</td>
+    						<td>
+    							{{ subject.type }}
+    						</td>
+    						<td>
+    							{{ subject.group }}
+    						</td>
+    						<td>
+    							{{ subject.starttime|date:"H" }}:{{ subject.starttime|date:"i" }}
+    						</td>
+    						<td>
+    							{{ subject.endtime|date:"H" }}:{{ subject.endtime|date:"i" }}
+    						</td>
+    						<td>
+    							{{ subject.weekdaysid.name }}
+    						</td>
+    						<td class="hide">
+    							{{ subject.weekdaysid.id }}
+    						</td>
+    					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</section>
+			<footer>
+				Autorzy: Magdalena Rybak, Mariusz Szklaruk, Namysław Jerzy Szymaniuk, Karol Tarasiuk, Adrian Traczyk
+			</footer>
+		</div>
+	</body>
+</html>

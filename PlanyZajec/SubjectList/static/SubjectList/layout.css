@@ -1,0 +1,81 @@
+body {
+	font-family: Tahoma;
+	font-size: .90em;	
+}
+
+#container {
+	width: 900px;
+	margin: auto auto;
+}
+
+#container > footer {
+	line-height: 40px;
+	padding: 0px 20px;
+	font-size: .75em;
+	font-weight: 700;
+}
+
+.header h1 {
+	font-size: 3.0em;
+	font-weight: 700;
+	padding: 40px 0px 40px 20px;
+	margin: 10px 0px 0px 0px;
+}
+
+.navMenu > ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	height: 40px;	
+}
+
+.navMenu > ul li {
+	float: left;
+}
+
+.navMenu > ul li a {
+	display: block;
+	line-height: 40px;
+	text-decoration: none;
+	padding: 0px 25px;
+	font-weight: 700;
+	-webkit-transition: background 0.6s linear;
+	-moz-transition: background 0.6s linear;
+	-ms-transition: background 0.6s linear;
+	-o-transition: background 0.6s linear;
+	transition: background 0.6s linear;
+}
+
+.navMenu > ul li a:hover {
+
+}
+
+.navMenu a:hover ~
+ul, .navMenu li:hover ul, .navMenu ul ul:hover {
+	display: block;
+}
+
+.navMenu > ul li ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	position: absolute;
+	display: none;
+}
+
+.navMenu > ul li ul li {
+	float: none;
+}
+
+.navMenu > ul li ul li a {
+	line-height: 40px;
+	text-decoration: none;
+	padding: 0px 20px;
+	font-weight: 700;
+	-webkit-transition: background 0.6s linear;
+	-moz-transition: background 0.6s linear;
+	-ms-transition: background 0.6s linear;
+	-o-transition: background 0.6s linear;
+	transition: background 0.6s linear;
+}
