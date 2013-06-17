@@ -19,6 +19,11 @@ def index(request):
         form = SearchingForm()
         subjects = Subjects.objects.filter(semestersid = 1)
     
+    hide = 'f'
+    if 'login' not in request.session:
+        hide = 't'
+    
+    
     t = loader.get_template('SubjectList/index.html')
-    c = RequestContext(request, {'subjects': subjects, 'search': form})
+    c = RequestContext(request, {'subjects': subjects, 'search': form, 'hide': hide})
     return HttpResponse(t.render(c))

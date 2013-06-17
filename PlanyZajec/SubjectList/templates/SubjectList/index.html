@@ -27,26 +27,31 @@
 					<li>
 						<a href="/">Rozkład</a>
 						<ul>
+							{% if hide == "f" %}
 							<li>
 								<a href="/AddSubject/">Dodaj</a>
 							</li>
 							<li>
 								<a href="#">Analizuj</a>
 							</li>
+							
+							{% endif %}
 							<li>
 								<a href="#">Drukuj</a>
 							</li>
+							
+							{% if hide == "f" %}
 							<li>
 								<a href="#">Pokaż obciążenie</a>
 							</li>
+							
+							{% endif %}
 							<li>
 								<a href="#">Wolne sale</a>
 							</li>
 						</ul>
 					</li>
-					<li>
-						<a href="#">Tabele</a>
-					</li>
+					{% if hide == "f" %}
 					<li>
 						<a href="#">Narzędzia</a>
 						<ul>
@@ -70,8 +75,13 @@
 							</li>
 						</ul>
 					</li>
+					{% endif %}
 					<li>
+					{% if hide == "f" %}
 						<a href="/LogIn/logout">Wyloguj</a>
+					{% else %}
+						<a href="/LogIn">Zaloguj</a>
+					{% endif %}
 					</li>
 				</ul>
 			</nav>
