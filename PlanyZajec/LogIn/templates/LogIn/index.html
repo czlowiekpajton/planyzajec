@@ -1,28 +1,78 @@
- {% load staticfiles %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Strona Glówna</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'LogIn/layout.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'LogIn/colors.css' %}">
-</head>
+	<head>
+		<title>Strona Główna</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'AddSubject/layout.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'AddSubject/colors.css' %}">
+	</head>
 
-<body>
-    <div id="container">
-        <div class="header">
-            <h1>Logowanie</h1>
-        </div><p>{{ message }}</p>
-	    <form method="post" action="/LogIn/">
-	    	{% csrf_token %}
-		    <p>{{ form.login }}</p>
-		    <p>{{ form.password }}</p>
-		    <p><input type="submit" value="Logowanie"/>
-		    <input type="reset" value="Wartości domyślne"/></p>
-	  	</form>
-  	</div>
-  	<footer>
-    	Autorzy: Magdalena Rybak, Mariusz Szklaruk, Namyslaw Jerzy Szymaniuk, Karol Tarasiuk, Adrian Traczyk
-    </footer>
-</body>
+	<body>
+		<div id="container">
+			<div class="header">
+				<h1>Plan zajęć</h1>
+			</div>
+			<nav class="navMenu">
+				<ul>
+					<li>
+						<a href="/">Rozkład</a>
+						<ul>
+							<li>
+								<a href="/AddSubject/">Dodaj</a>
+							</li>
+							<li>
+								<a href="#">Analizuj</a>
+							</li>
+							<li>
+								<a href="#">Drukuj</a>
+							</li>
+							<li>
+								<a href="#">Pokaż obciążenie</a>
+							</li>
+							<li>
+								<a href="#">Wolne sale</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Narzędzia</a>
+						<ul>
+							<li>
+								<a href="#">Indeksuj pliki</a>
+							</li>
+							<li>
+								<a href="#">Parametry</a>
+							</li>
+							<li>
+								<a href="#">Tryb read-only</a>
+							</li>
+							<li>
+								<a href="#">Utwórz bazy podstawowe</a>
+							</li>
+							<li>
+								<a href="#">Publikuj rozkład nauczycieli</a>
+							</li>
+							<li>
+								<a href="#">Drukuj raport obciążenia</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<section>
+				<h2>Logowanie</h2>
+                <p>{{ message }}</p>
+				    <form method="post" action="/LogIn/">
+				    	{% csrf_token %}
+					    <p>Login: {{ form.login }}</p>
+					    <p>Hasło: {{ form.password }}</p>
+					    <p><input type="submit" value="Logowanie"/></p>
+				  	</form>
+			</section>
+			<footer>
+				Autorzy: Magdalena Rybak, Mariusz Szklaruk, Namysław Jerzy Szymaniuk, Karol Tarasiuk, Adrian Traczyk
+			</footer>
+		</div>
+	</body>
 </html>

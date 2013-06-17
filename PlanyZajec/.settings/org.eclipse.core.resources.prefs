@@ -4,6 +4,7 @@ encoding//AddSubject/templates/AddSubject/failure.html=UTF-8
 encoding//AddSubject/templates/AddSubject/index.html=UTF-8
 encoding//AddSubject/templates/AddSubject/success.html=UTF-8
 encoding//AddSubject/views.py=utf-8
+encoding//LogIn/templates/LogIn/index.html=UTF-8
 encoding//LogIn/views.py=utf-8
 encoding//SubjectList/SearchForm.py=utf-8
 encoding//SubjectList/templates/SubjectList/index.html=UTF-8
