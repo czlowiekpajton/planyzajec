@@ -31,3 +31,9 @@ def index(request):
         t = loader.get_template('LogIn/index.html')
         c = RequestContext(request, {'form' : form})
     return HttpResponse(t.render(c))
+
+def logout(request):
+    print 'siema'
+    del request.session['login']
+    print 'pooo'
+    return HttpResponseRedirect("/SubjectList/")
