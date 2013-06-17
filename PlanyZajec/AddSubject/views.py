@@ -8,6 +8,11 @@ from AddSubject.models import Subjects, Lectures, Rooms, Semesters, Weekdays
 
 @csrf_protect
 def index(request):
+    if('login' not in request.session):
+        template = 'AddSubject/failure.html'
+        context = {'message' : 'Nie masz uprawnień do przeglądania tej strony.'}
+        return render(request, template, context)
+    
     if request.method == 'POST':
         form = AddSubjectForm(request.POST)
         
