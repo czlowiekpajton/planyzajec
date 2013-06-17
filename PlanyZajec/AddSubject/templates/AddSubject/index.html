@@ -1,0 +1,128 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Strona Główna</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'AddSubject/layout.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'AddSubject/colors.css' %}">
+	</head>
+
+	<body>
+		<div id="container">
+			<div class="header">
+				<h1>Plan zajęć</h1>
+			</div>
+			<nav class="navMenu">
+				<ul>
+					<li>
+						<a href="#">Rozkład</a>
+						<ul>
+							<li>
+								<a href="/AddSubject/">Dodaj</a>
+							</li>
+							<li>
+								<a href="#">Analizuj</a>
+							</li>
+							<li>
+								<a href="#">Drukuj</a>
+							</li>
+							<li>
+								<a href="#">Pokaż obciążenie</a>
+							</li>
+							<li>
+								<a href="#">Wolne sale</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Tabele</a>
+					</li>
+					<li>
+						<a href="#">Narzędzia</a>
+						<ul>
+							<li>
+								<a href="#">Indeksuj pliki</a>
+							</li>
+							<li>
+								<a href="#">Parametry</a>
+							</li>
+							<li>
+								<a href="#">Tryb read-only</a>
+							</li>
+							<li>
+								<a href="#">Utwórz bazy podstawowe</a>
+							</li>
+							<li>
+								<a href="#">Publikuj rozkład nauczycieli</a>
+							</li>
+							<li>
+								<a href="#">Drukuj raport obciążenia</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Pomoc</a>
+					</li>
+				</ul>
+			</nav>
+			<section>
+				<h2>Dodawanie planu</h2>
+                <form action="/AddSubject/" method="POST">{% csrf_token %}
+                    <table>
+                        <tr>
+                             <td>Nazwa:</td>
+                             <td>{{ form.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Częstotliwość:</td>
+                            <td>{{ form.freq }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Dzień tygodnia:</td>
+                            <td>{{ form.weekday }}</td>
+                        </tr>
+                        <tr>
+                            <td>Godzina rozpoczęcia:</td>
+                            <td>{{ form.starttime }}</td>
+                        </tr>
+                        <tr>
+                            <td>Godzina zakończenia:</td>
+                            <td>{{ form.endtime }}</td>
+                        </tr>
+                        <tr>
+                            <td>Semestr:</td>
+                            <td>{{ form.semester }}</td>
+                        </tr> 
+                        <tr>
+                            <td>Grupa:</td>
+                            <td>{{ form.group }}</td>
+                        </tr>
+                        <tr>
+                            <td>Typ zajęć:</td>
+                            <td>{{ form.type }}</td>
+                        </tr>
+                        <tr>
+                            <td>Prowadzący:</td>
+                            <td>{{ form.lector }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sala:</td>
+                            <td>{{ form.room }}</td>
+                        </tr>                                               
+                        <tr>
+                            <td>
+                            	<input id="Przycisk" type="submit" value="Zapisz" />
+                            </td>
+                            
+                        </tr>
+                    </table>
+                </form>
+			</section>
+			<footer>
+				Autorzy: Magdalena Rybak, Mariusz Szklaruk, Namysław Jerzy Szymaniuk, Karol Tarasiuk, Adrian Traczyk
+			</footer>
+		</div>
+	</body>
+</html>

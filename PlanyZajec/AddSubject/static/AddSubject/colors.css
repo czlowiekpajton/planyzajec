@@ -1,0 +1,33 @@
+body {
+	background-color: #D8D8D8;
+}
+
+#container > footer {
+	background-color: #B3B3B3;
+}
+
+.navMenu > ul {
+	background-color: #B3B3B3;	
+}
+
+.navMenu > ul li a {	
+	background-color: #17A2FF;
+	color: #FFF;	
+}
+
+.navMenu > ul li a:hover {
+	background-color: #006EB8;
+}
+
+.navMenu > ul li ul li a {
+	background-color: #1FBCFF;
+	color: #FFF;
+}
+
+.greenh1 {
+	background-color: green;
+}
+
+.redh1 {
+	background-color: red;
+}

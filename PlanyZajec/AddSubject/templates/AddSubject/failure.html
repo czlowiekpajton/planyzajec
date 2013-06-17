@@ -1,0 +1,77 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Strona Główna</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'AddSubject/layout.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'AddSubject/colors.css' %}">
+	</head>
+
+	<body>
+		<div id="container">
+			<div class="header">
+				<h1>Plan zajęć</h1>
+			</div>
+			<nav class="navMenu">
+				<ul>
+					<li>
+						<a href="#">Rozkład</a>
+						<ul>
+							<li>
+								<a href="/AddSubject/">Dodaj</a>
+							</li>
+							<li>
+								<a href="#">Analizuj</a>
+							</li>
+							<li>
+								<a href="#">Drukuj</a>
+							</li>
+							<li>
+								<a href="#">Pokaż obciążenie</a>
+							</li>
+							<li>
+								<a href="#">Wolne sale</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Tabele</a>
+					</li>
+					<li>
+						<a href="#">Narzędzia</a>
+						<ul>
+							<li>
+								<a href="#">Indeksuj pliki</a>
+							</li>
+							<li>
+								<a href="#">Parametry</a>
+							</li>
+							<li>
+								<a href="#">Tryb read-only</a>
+							</li>
+							<li>
+								<a href="#">Utwórz bazy podstawowe</a>
+							</li>
+							<li>
+								<a href="#">Publikuj rozkład nauczycieli</a>
+							</li>
+							<li>
+								<a href="#">Drukuj raport obciążenia</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Pomoc</a>
+					</li>
+				</ul>
+			</nav>
+			<section>
+				<h1 class="redh1">{{ message }}</h1>
+			</section>
+			<footer>
+				Autorzy: Magdalena Rybak, Mariusz Szklaruk, Namysław Jerzy Szymaniuk, Karol Tarasiuk, Adrian Traczyk
+			</footer>
+		</div>
+	</body>
+</html>
