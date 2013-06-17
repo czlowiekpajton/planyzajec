@@ -11,7 +11,7 @@
 		<script type="text/javascript">
 			$(document).ready(function()
 			{
-				$("#myTable").tablesorter({sortList: [[8,0], [5,0]]});
+				$("#myTable").tablesorter({sortList: [[9,0], [6,0]]});
 			}
 			);
 		</script> 
@@ -106,31 +106,34 @@
 				<thead>
 					<tr>
     					<th>
-    						<p>Nazwa przedmiotu:</p>
+    						<p>Nazwa przedmiotu</p>
     					</th>
     					<th>
-    						<p>Sala:</p>
+    						<p>Rodzaj</p>
     					</th>
     					<th>
-    						<p>Prowadzący:</p>
+    						<p>Grupa PS</p>
     					</th>
     					<th>
-    						<p>Rodzaj:</p>
+    						<p>Prowadzący</p>
     					</th>
     					<th>
-    						<p>Grupa PS:</p>
+    						<p>Sala</p>
     					</th>
     					<th>
-    						<p>Czas rozpoczęcia:</p>
+    						<p>Dzień tygodnia</p>
     					</th>
     					<th>
-    						<p>Czas zakończenia:</p>
+    						<p>Czas rozpoczęcia</p>
     					</th>
     					<th>
-    						<p>Dzień tygodnia:</p>
+    						<p>Czas zakończenia</p>
+    					</th>
+    					<th>
+    						<p>Częstotliwość</p>
     					</th>
     					<th class="hide">
-    						<p>Dzień tygodnia ID:</p>
+    						<p>Dzień tygodnia ID</p>
     					</th>
     				</tr>
     			</thead>
@@ -141,17 +144,20 @@
     							{{ subject.name }}
     						</td>
     						<td>
-    							{{ subject.roomsid.number }}
+    							{{ subject.type }}
+    						</td>
+    						<td>
+    							{{ subject.group }}
     						</td>
     						<td>
     							{{ subject.lecturesid.firstname }}
     							{{ subject.lecturesid.lastname }}
     						</td>
     						<td>
-    							{{ subject.type }}
+    							{{ subject.roomsid.number }}
     						</td>
     						<td>
-    							{{ subject.group }}
+    							{{ subject.weekdaysid.name }}
     						</td>
     						<td>
     							{{ subject.starttime|date:"H" }}:{{ subject.starttime|date:"i" }}
@@ -160,7 +166,13 @@
     							{{ subject.endtime|date:"H" }}:{{ subject.endtime|date:"i" }}
     						</td>
     						<td>
-    							{{ subject.weekdaysid.name }}
+    							{% if subject.evenweek == 0 %}
+    								Co tydzień
+    							{% elif subject.evenweek == 1 %}
+    								Tygodnie nieparzyste
+    							{% elif subject.evenweek == 2 %}
+    								Tygodnie parzyste
+    							{% endif %}
     						</td>
     						<td class="hide">
     							{{ subject.weekdaysid.id }}

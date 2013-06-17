@@ -79,3 +79,11 @@ ul, .navMenu li:hover ul, .navMenu ul ul:hover {
 	-o-transition: background 0.6s linear;
 	transition: background 0.6s linear;
 }
+
+.hide {
+	visibility: hidden
+}
+
+#myTable th:hover {
+	cursor: pointer;
+}
