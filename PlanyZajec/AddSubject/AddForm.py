@@ -26,7 +26,7 @@ class AddSubjectForm(forms.Form):
     
     def clean_name(self):
         name = self.cleaned_data['name']
-        if not re.match (r'[a-zA-Z0-9.-]+$', name):
+        if not re.match (r'[a-zA-Z0-9ĘęÓóĄąŚśŁłŻżŹźĆćŃń.-]+$', name):
             raise forms.ValidationError('Nieprawidłowa nazwa przedmiotu')
         return name
     def clean_group(self):
