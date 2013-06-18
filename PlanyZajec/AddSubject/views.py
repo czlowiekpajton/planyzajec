@@ -38,6 +38,9 @@ def index(request):
             else:
                 template = 'AddSubject/failure.html'
                 context = {'message' : 'Inne zajęcia są już zarejestrowane w tej sali o tej godzinie'}
+        else:
+            template = 'AddSubject/failure.html'
+            context = {'message' : form.errors.as_ul }
     else:
         form = AddSubjectForm()
         template = 'AddSubject/index.html'

@@ -166,12 +166,12 @@
     							{{ subject.endtime|date:"H" }}:{{ subject.endtime|date:"i" }}
     						</td>
     						<td>
-    							{% if subject.evenweek == 0 %}
+    							{% if subject.evenweek == 1 %}
     								Co tydzień
-    							{% elif subject.evenweek == 1 %}
-    								Tygodnie nieparzyste
     							{% elif subject.evenweek == 2 %}
-    								Tygodnie parzyste
+    								Tydzień przestępny
+    							{% elif subject.evenweek == 3 %}
+    								Tydzień nieprzestępny
     							{% endif %}
     						</td>
     						<td class="hide">
